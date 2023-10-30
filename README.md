@@ -8,7 +8,7 @@ Keywords: behavior pattern, machine learning, sex differences, computational eth
 
  
 Here, we showed the code related to each panel in the paper, which you can find the preprint version at https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4585835,
-Because of the size limitation in Github, We deposited the raw data, including video, BehaviorAtlas Analyzer output data and our collated and extracted data on Zenodo
+Because of the size limitation in Github, We deposited the raw data, including video, BehaviorAtlas Analyzer output data and the collated data on Zenodo
 The link cloud be accessed once it pass the community review (https://doi.org/10.1234/zenodo.8314730).
 
 If you are interested in BehaviorAtlas, the 3D motion analysis system, you can obtain more information in the attached linkers.
