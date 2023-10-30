@@ -2,7 +2,9 @@
 """
 Created on Fri Dec 10 09:31:58 2021
 
-@author: 12517
+@author: Jialin Ye
+@institution: SIAT
+@Contact_email: jl.ye@siat.ac.cn
 """
 
 # selet point
@@ -30,8 +32,8 @@ def return_movement(num):
     return(key)
 
 
-BehaviorAtlasData_dir =  r'I:\spontaneous_behavior_data\BehaviorAtlas_outputs_data\raw_data'
-revised_movement_dir = r'I:\spontaneous_behavior_data\BehaviorAtlas_outputs_data\revised_movement_label'
+BehaviorAtlasData_dir =  r'F:\spontaneous_behavior\GitHub\Elaborate-spontaneous-activity-atlas-driven-behavior-patterns-in-both-sexes\01_BehaviorAtlas_collated_data'
+revised_movement_dir = r'F:\spontaneous_behavior\GitHub\Elaborate-spontaneous-activity-atlas-driven-behavior-patterns-in-both-sexes\02_revised_movement_label'
 FeA_path = get_path(BehaviorAtlasData_dir,'Feature_Space.csv')
 #Mov_path = get_path(revised_movement_dir,'Movement_Labels.csv')
 
@@ -92,24 +94,22 @@ movement_color_dict = {'running':'#FF3030',
 
 
 skip_file_list = [1,3,28,29,110,122]
-animal_info_csv = r'I:\spontaneous_behavior_data\Table_S1_animal_information.csv'
+animal_info_csv = r'F:\spontaneous_behavior\GitHub\Elaborate-spontaneous-activity-atlas-driven-behavior-patterns-in-both-sexes\Table_S1_animal_information.csv'
 animal_info = pd.read_csv(animal_info_csv)
 
 animal_info = animal_info[~animal_info['video_index'].isin(skip_file_list)]
 
-# =============================================================================
-# 
-# LightOn_dataset = animal_info[animal_info['LightingCondition']=='Light-on']
-# 
-# Morning_lightOn_info = animal_info[(animal_info['ExperimentTime']=='Morning') & (animal_info['LightingCondition']=='Light-on')]
-# Afternoon_lightOn_info = animal_info[(animal_info['ExperimentTime']=='Afternoon') & (animal_info['LightingCondition']=='Light-on')]
-# 
-# Night_lightOn_info = animal_info[(animal_info['ExperimentTime']=='Night') & (animal_info['LightingCondition']=='Light-on')]
-# Night_lightOff_info = animal_info[(animal_info['ExperimentTime']=='Night') & (animal_info['LightingCondition']=='Light-off')]
-# =============================================================================
+
+LightOn_dataset = animal_info[animal_info['LightingCondition']=='Light-on']
+
+Morning_lightOn_info = animal_info[(animal_info['ExperimentTime']=='Morning') & (animal_info['LightingCondition']=='Light-on')]
+Afternoon_lightOn_info = animal_info[(animal_info['ExperimentTime']=='Afternoon') & (animal_info['LightingCondition']=='Light-on')]
+
+Night_lightOn_info = animal_info[(animal_info['ExperimentTime']=='Night') & (animal_info['LightingCondition']=='Light-on')]
+Night_lightOff_info = animal_info[(animal_info['ExperimentTime']=='Night') & (animal_info['LightingCondition']=='Light-off')]
 
 
-process_dataset = animal_info                        # change dataset here
+process_dataset = LightOn_dataset                        # change dataset here
 
 
 plot_file_list = []
@@ -171,8 +171,6 @@ for label in df_info['OriginalDigital_label'].unique():
 
 #df_info = df_info[df_info['z']<0.5]
 
-
-
 c = mcolors.CSS4_COLORS
 #fig, ax1 = plt.subplots(nrows=1, ncols=1,figsize=(10, 10),dpi=300)
 fig = plt.figure(figsize=(10, 10),dpi=1200)
@@ -201,5 +199,5 @@ ax1.set_zticklabels([])
 ax1.view_init(40,45)
 #ax1.view_init(90,0)
 
-#plt.savefig(r'H:\spontaneous_behavior_data\Figure&panel_code\Figure1_ExpeimentDesign&DataProcessing\3D_movement_feature_space.png',dpi=1200,transparent =True)
+plt.savefig(r'F:\spontaneous_behavior\GitHub\Elaborate-spontaneous-activity-atlas-driven-behavior-patterns-in-both-sexes\Figure1_ExpeimentDesign&DataProcessing\3D_movement_feature_space.png',dpi=1200,transparent =True)
 
